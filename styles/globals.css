@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Sonsie+One&display=swap');
+
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #10141f;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+.divider{
+  background: #5b5b5b;
+  width: 100%;
+  margin-top: 5%;
+}
+.makeStyles-product-6:hover .makeStyles-iconPlay-8 ,
+.makeStyles-product-6:hover .makeStyles-add-9
+{
+  display: block;
+}
+.react-multi-carousel-list{
+  margin-bottom: 2%;
+}
+.css-1q6at85-MuiInputBase-root-MuiOutlinedInput-root{
+  border-radius: 30px;
+  background: hsla(0,0%,100%,.5);
+  color: white;
+}
+.css-1u3bzj6-MuiFormControl-root-MuiTextField-root{
+  width:100%;
+}
