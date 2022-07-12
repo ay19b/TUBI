@@ -7,7 +7,9 @@ import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import {HiSearch} from "react-icons/hi";
 import useStyles from './style';
-
+import Logo from '../../public/logo.png'
+import NextLink from 'next/link'
+import Image from 'next/image';
 
 
 function Navbar({searchTerm,handleOnChange,handleOnSubmit}) {
@@ -19,7 +21,9 @@ function Navbar({searchTerm,handleOnChange,handleOnSubmit}) {
       
        <Grid container spacing={2} className={classes.listNav}>
         <Grid item xs={8} sm={4} className={classes.leftSide}>
-          <Typography variant='h4' className={classes.logo}>tubi</Typography>
+          <NextLink href="/" passHref>
+               <Image src={Logo} />
+          </NextLink>
           <div>browser</div>
         </Grid>
         <Grid item xs={4} sm={4} onSubmit={handleOnSubmit}>

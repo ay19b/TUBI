@@ -6,7 +6,7 @@ import NextLink from 'next/link';
 
 const IMAGE_API = "https://image.tmdb.org/t/p/w1280";
 
-const Movie = ({ title, poster_path,release_date,lin}) => {
+const Movie = ({ title, name,poster_path,release_date,lin}) => {
   
   const classes = useStyles();
   return (
@@ -23,7 +23,7 @@ const Movie = ({ title, poster_path,release_date,lin}) => {
         <Typography variant='subtitle1' className={classes.add} >add to my list</Typography>
       </div>
       <div className="movie-info">
-        <Typography variant='h6' className={classes.title}>{title}</Typography>
+        <Typography variant='h6' className={classes.title}>{title || name}</Typography>
         <Typography>2010</Typography>
       </div>
 

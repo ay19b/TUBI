@@ -60,6 +60,8 @@ export default function Movies({link,genre}) {
     getMovies(link);
   }, []);
 
+  
+
   return (
     <div className={classes.movies}>
          <div className={classes.headProdRight}>
@@ -73,7 +75,7 @@ export default function Movies({link,genre}) {
             >
               
               {movies.length > 0 &&
-                movies.map((movie) => <Movie key={movie.title} {...movie} lin={`movie/${movie.id}`}/>)}
+                movies.map((movie) => <Movie key={movie.id} {...movie} lin={`movie/${movie.id}`}/>)}
 
             </Carousel>
             <Divider className={classes.divider}/>  

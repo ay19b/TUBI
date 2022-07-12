@@ -10,24 +10,27 @@ import Movie from "../movie";
 
 function Banner({link}) {
   const [movies, setMovies] = useState([]);
+  
   const getMovies = (API) => {
     fetch(API)
       .then((res) => res.json())
       .then((data) => setMovies(data.results));
   };
 
-  const random = Math.floor(Math.random()*movies.length)
+  const random = Math.random(Math.floor() * movies.length -1)
 
   useEffect(() => {
     getMovies(link);
     console.log(movies)
+
   }, []);
 
   
   return (
     <div >
       
-            <Typography variant='h6'></Typography>
+      {movies.length > 0 &&
+            movies.map((movie) => <div key={movie.id}><h1>{movie.name || movie.title}</h1></div>)}
       
       
     </div>

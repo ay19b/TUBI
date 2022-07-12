@@ -8,7 +8,9 @@ import {FiInstagram} from 'react-icons/fi'
 import {BsTwitter} from 'react-icons/bs'
 import {GrFacebookOption} from 'react-icons/gr'
 import {AiFillYoutube} from 'react-icons/ai'
-
+import Logo from '../../public/logo.png'
+import NextLink from 'next/link'
+import Image from 'next/image';
 
 const Footer = () => {
  
@@ -17,9 +19,11 @@ const Footer = () => {
   return (
     <div>
       <Container>
-       <Grid container spacing={2} className={classes.headFooter} >
+	  <Grid container spacing={2} className={classes.headFooter} >
         <Grid item xs={8} sm={4} className={classes.titleFooter} >
-          <h1 className={classes.nameSite}>tubi</h1>
+		  <NextLink href="/" passHref>
+               <Image src={Logo} />
+          </NextLink>
 		  <Divider className={classes.divider}/>
         </Grid>
         <Grid item xs={4} sm={4}>
@@ -32,8 +36,6 @@ const Footer = () => {
 		   <Divider className={classes.divider}/>
         </Grid>
        </Grid>
-
-	   
        <Grid container spacing={2}>
            <Grid item sm={6} xs={12} md={3}>
 				     <ul className={classes.listItem}>

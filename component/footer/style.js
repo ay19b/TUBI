@@ -46,7 +46,6 @@ const useStyles = makeStyles((theme) => ({
 		listStyle:'none',
 	},
 	item:{
-		marginBottom: '2%',
 		color: '#bbb',
 	},
 	lastFooter:{
