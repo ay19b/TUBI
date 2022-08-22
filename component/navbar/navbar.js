@@ -11,7 +11,7 @@ import Logo from '../../public/logo.png'
 import NextLink from 'next/link'
 import Image from 'next/image';
 import { useRouter } from "next/router";
-import classn from './nav.module.css';
+
 
 function Navbar() {
   const classes = useStyles();
