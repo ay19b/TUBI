@@ -15,7 +15,7 @@ import Typography from '@mui/material/Typography';
 
 const IMAGE_API = "https://image.tmdb.org/t/p/w1280";
 
-function detailMovie() {
+function DetailMovie() {
   const [movies, setMovies] = useState([]);
   const [showIntro, setShowIntro] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
@@ -99,4 +99,4 @@ function detailMovie() {
 )
 }
 
-export default detailMovie
+export default DetailMovie
