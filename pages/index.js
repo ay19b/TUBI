@@ -9,7 +9,7 @@ import Footer from "../component/footer/footer";
 import Banner from "../component/banner/banner";
 import Loading from "../component/loading/loading";
 import Head from 'next/head';
-
+import Layout from '../component/Layout';
 
 const responsive = {
   superLargeDesktop: {
@@ -56,6 +56,7 @@ export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [showIntro, setShowIntro] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
+
 
   const getMovies = (API) => {
     fetch(API)
@@ -109,10 +110,9 @@ export default function Home() {
  </Head> 
 
     {!showIntro && 
-      <Container>
       
-        <Navbar searchTerm={searchTerm} handleOnChange={handleOnChange} />
-        <Banner link={Tranding}/>
+      <Layout>
+        <Banner />
         <Movies link={TopRated} genre='TopRated' />
         <Movies link={ActionMovies} genre='Action' /> 
         <Movies link={comedyMovies} genre='Comedy' />    
@@ -120,9 +120,8 @@ export default function Home() {
         <Movies link={HorrorMovies} genre='Horror' />  
         <Movies link={RomanceMovies} genre='Romance' /> 
         <Movies link={Documentarie} genre='Documentarie' /> 
-        <Footer />
+      </Layout>
       
-      </Container>
      }
     </div>
   )

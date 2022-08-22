@@ -4,9 +4,7 @@ import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
 	footer:{
-		backgroundColor: 'black',
-		maxWidth: '1280px',
-        margin: 'auto',
+        marginTop: '7%',
 	},
 	titleFooter:{
 		color:'white'

@@ -28,7 +28,7 @@ const responsive = {
 };
 
 
-  
+
 
 export default function Movies({link,genre}) {
   const [movies, setMovies] = useState([]);
@@ -42,28 +42,19 @@ export default function Movies({link,genre}) {
   };
 
 
-  console.log(setMovies)
-  const handleOnSubmit = (event) => {
-    event.preventDefault();
-
-    if (searchTerm) {
-      getMovies(`${SEARCH_API}${searchTerm}`);
-      setSearchTerm("");
-    }
-  };
-
-  const handleOnChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
+  
+  
 
   useEffect(() => {
     getMovies(link);
+    console.log(movies)
   }, []);
 
   
 
   return (
     <div className={classes.movies}>
+       <Container>
          <div className={classes.headProdRight}>
             <Typography variant='h5'>{genre}</Typography>
             <Typography variant='h3'className={classes.icon}><RiArrowDropRightLine /></Typography>
@@ -79,6 +70,7 @@ export default function Movies({link,genre}) {
 
             </Carousel>
             <Divider className={classes.divider}/>  
+       </Container>     
     </div>
   )
 }

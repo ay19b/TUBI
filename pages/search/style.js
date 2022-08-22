@@ -3,12 +3,23 @@ import { makeStyles } from '@mui/styles';
 
 
 const useStyles = makeStyles((theme) => ({
+    search:{
+        position: 'absolute',
+    },
+    searchCont:{
+        marginTop: '10%',
+    },
+    List:{
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+    },
     movies:{
         marginBottom: '2%',
     },
     product:{
         height:'23rem',
-        margin: '3% 8% 1% 0%',
+        width: '15rem',
         color:'white',
         position: 'relative',
         cursor:'pointer',
@@ -17,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
         position: 'relative',
         textAlign: 'center',
         height: '19rem',
+        width: '15rem',
     },
     iconPlay:{
         fontSize: '4rem',
@@ -49,12 +61,8 @@ const useStyles = makeStyles((theme) => ({
         overflow: 'hidden',
         whiteSpace: 'nowrap',
         '&:hover':{
-            color:'orange',
-            
+            color:'orange',  
         },
-    },
-    star:{
-        color:'#fb590b',
     },
 	headProdRight:{
         display: 'flex',

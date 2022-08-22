@@ -1,15 +1,15 @@
 import React from "react";
 import useStyles from './style';
-import {BsFillStarFill,BsFillPlayFill} from "react-icons/bs";
+import {BsFillPlayFill} from "react-icons/bs";
 import Typography from '@mui/material/Typography';
 import NextLink from 'next/link';
 
-
 const IMAGE_API = "https://image.tmdb.org/t/p/w1280";
 
-const Movie = ({ title, name,poster_path,vote_average,release_date,lin}) => {
- 
-  const classes = useStyles()
+const Movie = ({ title, name,poster_path,release_date,lin}) => {
+  
+  const classes = useStyles();
+  const date = release_date.split('-')[0]
   return (
   <NextLink href={lin} passHref>
     <div className={classes.product}>
@@ -25,10 +25,10 @@ const Movie = ({ title, name,poster_path,vote_average,release_date,lin}) => {
       </div>
       <div className="movie-info">
         <Typography variant='h6' className={classes.title}>{title || name}</Typography>
-        <Typography><BsFillStarFill className={classes.star}/>{vote_average.toFixed(1)} </Typography>
+        <Typography>{date}</Typography>
       </div>
 
-       
+      
     </div>
   </NextLink>
   );
