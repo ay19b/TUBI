@@ -74,7 +74,7 @@ a {
     -webkit-transform: rotate(360deg);
   }
 }
-.react-multiple-carousel__arrow#{
+.react-multiple-carousel__arrow{
   z-index: 9 !important;
 }
 
