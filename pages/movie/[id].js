@@ -16,6 +16,20 @@ import Typography from '@mui/material/Typography';
 const IMAGE_API = "https://image.tmdb.org/t/p/w1280";
 
 
+
+export async function getServerSideProps({ query }) {
+  let Name = await fetch(
+    `https://api.themoviedb.org/3/movie/${query.id}?api_key=512f02bfeaad808b483c6f3bb546db74`
+  );
+  let Data = await Name.json();
+  return {
+    props: {
+      Data,
+    },
+  };
+}
+
+
 function DetailMovie({ Data }) {
   const [movies, setMovies] = useState([]);
   const [showIntro, setShowIntro] = useState(true);
@@ -71,15 +85,5 @@ function DetailMovie({ Data }) {
 )
 }
 
-export async function getServerSideProps({ query }) {
-  let Name = await fetch(
-    `https://api.themoviedb.org/3/movie/${query.id}?api_key=e210177d339cffde80c7bde18b504e93`
-  );
-  let Data = await Name.json();
-  return {
-    props: {
-      Data,
-    },
-  };
-}
 export default DetailMovie;
+

@@ -30,7 +30,7 @@ const responsive = {
 
 
 
-export default function Movies({link,genre}) {
+export default function Movies({Props}) {
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const classes = useStyles();
@@ -42,11 +42,8 @@ export default function Movies({link,genre}) {
   };
 
 
-  
-  
-
   useEffect(() => {
-    getMovies(link);
+    getMovies(Props.Request);
     console.log(movies)
   }, []);
 
@@ -56,9 +53,9 @@ export default function Movies({link,genre}) {
     <div className={classes.movies}>
        <Container>
          <div className={classes.headProdRight}>
-            <Typography variant='h5'>{genre}</Typography>
+            <Typography variant='h5'>{Props.Title}</Typography>
             <Typography variant='h3'className={classes.icon}><RiArrowDropRightLine /></Typography>
-          </div>
+         </div>
         
             <Carousel 
               responsive={responsive}
