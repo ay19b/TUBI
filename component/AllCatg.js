@@ -1,12 +1,13 @@
 import React from "react";
-import Movies from "./movies";
+import getStaticProps from "./movies";
 import MoviesObj from "./TMDB";
+import Movies from "./movies";
 
 const CategoryWise = () => {
   return (
     <div className="">
       {MoviesObj.map((Obj, Ind) => {
-        return <Movies Props={Obj} key={Ind} />;
+        return <Movies Request={Obj} key={Ind} />;
       })}
     </div>
   );

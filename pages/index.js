@@ -5,6 +5,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Container from '@mui/material/Container';
 import Movies from "../component/movies";
+import MoviesObj from "../component/TMDB";
 import Footer from "../component/footer/footer";
 import Banner from "../component/banner/banner";
 import Loading from "../component/loading/loading";
@@ -47,7 +48,9 @@ export default function Home() {
       
       <Layout>
         <Banner />
-        <CategoryWise />
+        {MoviesObj.map((Obj, Ind) => {
+         return <Movies link={Obj.Request} genre={Obj.Title} key={Ind}/>;
+      })}
       </Layout>
       
      }
