@@ -5,33 +5,18 @@ import CssBaseline from '@mui/material/CssBaseline';
 import NextLink from 'next/link';
 import Image from 'next/image';
 import Grid from '@mui/material/Divider';
-import Layout from "../../component/Layout";
+import Layout from "../Layout";
 import { makeStyles } from '@mui/styles';
 import Container from '@mui/material/Container';
-import Loading from "../../component/loading/loading";
+import Loading from "../loading/loading";
 import useStyles from './style';
 import Typography from '@mui/material/Typography';
-import MovieInfo from "../../component/movieInfo/movieInfo";
 
 
 const IMAGE_API = "https://image.tmdb.org/t/p/w1280";
 
 
-
-export async function getServerSideProps({ query }) {
-  let Name = await fetch(
-    `https://api.themoviedb.org/3/movie/${query.id}?api_key=512f02bfeaad808b483c6f3bb546db74`
-  );
-  let Data = await Name.json();
-  return {
-    props: {
-      Data,
-    },
-  };
-}
-
-
-function DetailMovie({ Data }) {
+function MovieInfo({ Data }) {
   const [movies, setMovies] = useState([]);
   const [showIntro, setShowIntro] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
@@ -50,12 +35,41 @@ function DetailMovie({ Data }) {
 
   <Layout >   
   
-  <MovieInfo Data={Data}/>
+  <div className={classes.detailMovie} >
+      
+    <img src={IMAGE_API + Data.backdrop_path}  className={classes.backGround}/>
+    <div className={classes.grid}>
+      
+       <div className={classes.contImg}>
+        
+        {Data.poster_path ? (
+           <img src={IMAGE_API + Data.poster_path} alt={Data.title} className={classes.img}/>
+        ) : (
+        <img src="no-cover.png" alt={Data.title} />
+         )}
+       </div> 
+       <div className={classes.discMovie}>
+       <Typography variant="h4" gutterBottom component="div">
+          {Data.title}
+      </Typography>
+      <Typography variant="h6" gutterBottom component="div" style={{color:'#4d4d4d'}}>
+      {Data.release_date}
+      </Typography>
+      <Typography variant="subtitle1" gutterBottom component="div" className={classes.prg}>
+      {Data.overview}
+      </Typography>
+          
+       </div>
+      
+    </div>
+    
+  </div>
+  
   </Layout>  
  
   </>
 )
 }
 
-export default DetailMovie;
+export default MovieInfo;
 
