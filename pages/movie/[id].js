@@ -49,27 +49,27 @@ function DetailMovie({ Data }) {
 
   <Layout >   
   
-  <div className={classes.detailMovie} >
+  <div>
       
-    <img src={IMAGE_API + Data.backdrop_path}  className={classes.backGround}/>
-    <div className={classes.grid} >
+    <img src={IMAGE_API + Data.backdrop_path}  />
+    <div >
       
-       <div className={classes.contImg} >
+       <div >
         
         {Data.poster_path ? (
-           <img src={IMAGE_API + Data.poster_path} alt={Data.title} className={classes.img}/>
+           <img src={IMAGE_API + Data.poster_path} alt={Data.title} />
         ) : (
         <img src="no-cover.png" alt={Data.title} />
          )}
        </div> 
-       <div className={classes.discMovie}>
+       <div >
        <Typography variant="h4" gutterBottom component="div">
           {Data.title}
       </Typography>
       <Typography variant="h6" gutterBottom component="div" style={{color:'#4d4d4d'}}>
       {Data.release_date}
       </Typography>
-      <Typography variant="subtitle1" gutterBottom component="div" className={classes.prg}>
+      <Typography variant="subtitle1" gutterBottom component="div" >
       {Data.overview}
       </Typography>
           
