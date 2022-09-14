@@ -7,6 +7,8 @@ import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import useStyles from './style';
 import {RiArrowDropRightLine} from "react-icons/ri"
+import { SwiperSlide, Swiper } from 'swiper/react';
+import 'swiper/css';
 
 const responsive = {
   superLargeDesktop: {
@@ -61,15 +63,22 @@ export default function Movies({link,genre}) {
             <Typography variant='h3'className={classes.icon}><RiArrowDropRightLine /></Typography>
           </div>
         
-            <Carousel 
-              responsive={responsive}
-              autoPlay={false}
+          <Swiper
+                grabCursor={true}
+                spaceBetween={10}
+                slidesPerView={'auto'}
             >
               
               {movies.length > 0 &&
-                movies.map((movie) => <Movie key={movie.id} {...movie} lin={`movie/${movie.id}`}/>)}
+                movies.map((movie) => 
+                <SwiperSlide key={movie.id} style={{width:'15rem'}}>
+                    <Movie key={movie.id} {...movie} lin={`movie/${movie.id}`}/>
+                </SwiperSlide>
+                
+                
+                )}
 
-            </Carousel>
+            </Swiper>
             <Divider className={classes.divider}/>  
        </Container>     
     </div>

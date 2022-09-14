@@ -120,3 +120,7 @@ a {
     transform: translateY(0);
   };
 };
+
+.swiper-slide{
+  width: 80% 
+}

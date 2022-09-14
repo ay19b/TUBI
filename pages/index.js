@@ -3,7 +3,6 @@ import Navbar from '../component/navbar/navbar'
 import Divider from '@mui/material/Divider';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import Container from '@mui/material/Container';
 import Movies from "../component/movies";
 import MoviesObj from "../component/TMDB";
 import Footer from "../component/footer/footer";
@@ -45,14 +44,13 @@ export default function Home() {
  </Head> 
 
     {!showIntro && 
-      
+ 
       <Layout>
         <Banner />
         {MoviesObj.map((Obj, Ind) => {
          return <Movies link={Obj.Request} genre={Obj.Title} key={Ind}/>;
       })}
       </Layout>
-      
      }
     </div>
   )
