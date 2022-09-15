@@ -35,40 +35,27 @@ function MovieInfo({ Data }) {
 
   <Layout >   
   
-  <div style={{ width:'100vw',position:'relative' }} >
+  <div className={classes.detailMovie} >
       
-    <img src={IMAGE_API + Data.backdrop_path}  style={{
-        width:'100vw',
-        height: '100%'
-         }}/>
-    <div style={{backgroundColor: 'rgba(0,0,0,0.7)',
-        position: 'absolute',
-        top: '0%',
-        width: '100%',
-        height: '100%',
-        color: 'white',
-        display: "flex",
-        paddingTop: '10rem', }}>
+  <img src={IMAGE_API + Data.backdrop_path}  className={classes.backGround}/>
+    <div className={classes.grid}>
       
-       <div style={{ width:'30%',}}>
+    <div className={classes.contImg}>
         
         {Data.poster_path ? (
-           <img src={IMAGE_API + Data.poster_path} alt={Data.title} style={{ width:'13rem',
-           position: 'absolute',
-           left: '0',
-           marginLeft: '4%',}}/>
+            <img src={IMAGE_API + Data.poster_path} alt={Data.title} className={classes.img}/>
         ) : (
         <img src="no-cover.png" alt={Data.title} />
          )}
        </div> 
-       <div style={{ width:'50%'}}>
+       <div className={classes.discMovie}>
        <Typography variant="h4" gutterBottom component="div">
           {Data.title}
       </Typography>
       <Typography variant="h6" gutterBottom component="div" style={{color:'#4d4d4d'}}>
       {Data.release_date}
       </Typography>
-      <Typography variant="subtitle1" gutterBottom component="div" style={{ width:'60%'}}>
+      <Typography variant="subtitle1" gutterBottom component="div" className={classes.prg}>
       {Data.overview}
       </Typography>
           

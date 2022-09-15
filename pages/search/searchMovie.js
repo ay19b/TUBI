@@ -9,7 +9,7 @@ const IMAGE_API = "https://image.tmdb.org/t/p/w1280";
 const Movie = ({ title, name,poster_path,release_date,lin}) => {
   
   const classes = useStyles();
-  const date = release_date.split('-')[0]
+ 
   return (
   <NextLink href={lin} passHref>
     <div className={classes.product}>
@@ -25,7 +25,7 @@ const Movie = ({ title, name,poster_path,release_date,lin}) => {
       </div>
       <div className="movie-info">
         <Typography variant='h6' className={classes.title}>{title || name}</Typography>
-        <Typography>{date}</Typography>
+        <Typography>{release_date}</Typography>
       </div>
 
       
