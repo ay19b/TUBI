@@ -9,7 +9,6 @@ import Layout from "../../component/Layout";
 import { makeStyles } from '@mui/styles';
 import Container from '@mui/material/Container';
 import Loading from "../../component/loading/loading";
-import useStyles from './style';
 import Typography from '@mui/material/Typography';
 import MovieInfo from "../../component/movieInfo/movieInfo";
 
