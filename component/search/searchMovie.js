@@ -1,5 +1,5 @@
 import React from "react";
-import useStyles from '../pages/search/style';
+import useStyles from './style';
 import {BsFillPlayFill} from "react-icons/bs";
 import Typography from '@mui/material/Typography';
 import NextLink from 'next/link';

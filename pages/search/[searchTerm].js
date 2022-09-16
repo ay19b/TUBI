@@ -4,8 +4,8 @@ import Container from '@mui/material/Container';
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Layout from "../../component/Layout";
-import Movie from "../../component/searchMovie";
-import useStyles from './style';
+import Movie from "../../component/search/searchMovie";
+import useStyles from '../../component/search/style';
 
 
 
