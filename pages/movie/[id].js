@@ -14,39 +14,57 @@ import MovieInfo from "../../component/movieInfo/movieInfo";
 
 
 
-function DetailMovie({ Data }) {
+function DetailMovie() {
   const [movies, setMovies] = useState([]);
   const [showIntro, setShowIntro] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
-  const classes = useStyles();
-  const IMAGE_API = "https://image.tmdb.org/t/p/w1280";
+  const router = useRouter();
+  const  id  = router.query.id;
+  const movieId =
+  "https://api.themoviedb.org/3/movie/"+id+"?api_key=e210177d339cffde80c7bde18b504e93";
+
+
+  const getMovies = (Id) => {
+      fetch(Id)
+      .then((res) => res.json())
+      .then((data) => setMovies(data));
+    };
+
+    useEffect(() => {
+      getMovies(movieId);
+    }, []);
+
+
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setShowIntro(false);
+        setIsLoading(false)
+      }, 4500)
+
+      return (() => clearTimeout(timer));
+    });
+
+
+    if (isLoading) {
+      return <Loading />
+    }
     
 
   return (
   <>
    <Head>
-       <title>{Data.title}</title>
+       <title>{movies.title}</title>
     </Head> 
 
   <>   
   
-  <MovieInfo Data={Data}/>
+  <MovieInfo Data={movies}/>
   </>  
  
   </>
 )
 }
 
-export async function getServerSideProps({ query }) {
-  let Name = await fetch(
-    `https://api.themoviedb.org/3/movie/${query.id}?api_key=e210177d339cffde80c7bde18b504e93`
-  );
-  let Data = await Name.json();
-  return {
-    props: {
-      Data,
-    },
-  };
-}
+
 
 export default DetailMovie;
