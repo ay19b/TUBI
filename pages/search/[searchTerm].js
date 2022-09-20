@@ -73,8 +73,8 @@ function SearchPage({ Data }) {
     <Head>
       <title>Showing Results for - {SearchTerm}</title>
     </Head>
-    <Layout>
-    
+    <Layout normal={'false'} active={'active'}>
+    <Container>
      <div className={classes.detailSearch}>
       <div>
         <h2>Search results for {SearchTerm} :</h2>
@@ -88,6 +88,7 @@ function SearchPage({ Data }) {
       
     
     </div> 
+    </Container>
     </Layout>
   </>
   )

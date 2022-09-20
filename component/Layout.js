@@ -6,7 +6,7 @@ import Navbar from './navbar/navbar'
 import Container from '@mui/material/Container';
 
 
-export default function Layout({children,nav}) {
+export default function Layout({children,nav,normal,active}) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleOnChange = (event) => {
@@ -19,7 +19,7 @@ export default function Layout({children,nav}) {
       
       
       <CssBaseline />
-        <Navbar searchTerm={searchTerm} handleOnChange={handleOnChange} nav={nav}/>
+        <Navbar searchTerm={searchTerm} handleOnChange={handleOnChange} nav={nav} navNormal={normal} navActive={active}/>
         
            {children}
        

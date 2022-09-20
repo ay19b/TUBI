@@ -13,7 +13,7 @@ import Image from 'next/image';
 import { useRouter } from "next/router";
 
 
-function Navbar() {
+function Navbar({navNormal,navActive}) {
   const classes = useStyles();
   const router = useRouter();
   const [isSearch, setIsSearch] = useState(false);
@@ -21,7 +21,8 @@ function Navbar() {
   const [showLinks, setShowLinks] = useState(false);
   const [navbar, setNavbar] = useState(false);
   const [nav, setNav] = useState(false);
-  
+  const [normal, setNormal] = useState(navNormal);
+  const [act, setAct] = useState(navActive);
 
   const toggleLinks = () => {
       setShowLinks(!showLinks);
@@ -54,7 +55,7 @@ useEffect(() => {
 
  
   return (
-    <nav className={!navbar?classes.navbar :classes.active}>
+    <nav className={!navbar?!normal?classes.navbar:classes.NavSearch :!act?classes.active:classes.ActiveSearch}>
       
        <Grid container spacing={2} className={!navbar?classes.listNav: classes.listNavActive}>
         <Grid item xs={8} sm={4} className={classes.leftSide}>

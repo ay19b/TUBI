@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
         paddingTop:' 5px !important',
         animationName: '$scrollNav',
         animationDuration: ".4s",
-        marginTop: "-1%",
+        marginTop: "-5.8%",
     },
     '@keyframes scrollNav':{
         '0%' :{

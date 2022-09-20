@@ -128,5 +128,6 @@ a {
   color: aliceblue;
 };
 .mui-style-1d3z3hw-MuiOutlinedInput-notchedOutline{
-  border-color: rgba(231, 199, 199, 0.23);
+  border-color: rgba(238, 194, 194, 0.23)!important;
+  color: aliceblue;
 };
