@@ -7,6 +7,7 @@ const useStyles = makeStyles((theme) => ({
         width:'100%',
         height:'32rem',
         position: 'relative',
+        marginBottom: '1.5rem',
     },
     img:{
         height:'100%',

@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Movie from "./movie";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
 import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
@@ -10,32 +8,9 @@ import {RiArrowDropRightLine} from "react-icons/ri"
 import { SwiperSlide, Swiper } from 'swiper/react';
 import 'swiper/css';
 
-const responsive = {
-  superLargeDesktop: {
-    breakpoint: { max: 4000, min: 900 },
-    items: 4
-  },
-  desktop: {
-    breakpoint: { max: 900, min: 600 },
-    items: 3
-  },
-  tablet: {
-    breakpoint: { max: 600, min: 300 },
-    items: 2
-  },
-  mobile: {
-    breakpoint: { max: 300, min: 0 },
-    items: 1
-  }
-};
-
-
-
-
 
 export default function Movies({link,genre}) {
   const [movies, setMovies] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
   const classes = useStyles();
 
   const getMovies = (API) => {
@@ -45,12 +20,8 @@ export default function Movies({link,genre}) {
   };
 
 
-  
-  
-
   useEffect(() => {
     getMovies(link);
-    console.log(movies)
   }, [link]);
 
   
@@ -74,8 +45,6 @@ export default function Movies({link,genre}) {
                 <SwiperSlide key={movie.id} style={{width:'15rem'}}>
                     <Movie key={movie.id} {...movie} lin={`movie/${movie.id}`}/>
                 </SwiperSlide>
-                
-                
                 )}
 
             </Swiper>

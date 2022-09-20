@@ -3,7 +3,8 @@ import useStyles from './style';
 import {BsFillStarFill,BsFillPlayFill} from "react-icons/bs";
 import Typography from '@mui/material/Typography';
 import NextLink from 'next/link';
-
+import Image from "next/image";
+import Loading from "./loading/loading";
 
 const IMAGE_API = "https://image.tmdb.org/t/p/w1280";
 
@@ -15,9 +16,19 @@ const Movie = ({ title, name,poster_path,vote_average,release_date,lin}) => {
     <div className={classes.product}>
       <div className={classes.playMovie}>
       {poster_path ? (
-        <img src={IMAGE_API + poster_path} alt={title} className={classes.img}/>
+        // eslint-disable-next-line jsx-a11y/alt-text
+        <Image
+        src={`https://image.tmdb.org/t/p/w1280/${poster_path}`}
+        width={500}
+        height={670}
+      />
       ) : (
-        <img src="no-cover.png" alt={title} />
+        // eslint-disable-next-line jsx-a11y/alt-text
+        <Image
+        src="no-cover.png"
+        width={500}
+        height={670}
+      />
       )}
       
         <BsFillPlayFill className={classes.iconPlay} />

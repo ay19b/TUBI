@@ -1,16 +1,11 @@
-import React, { useEffect, useState, Suspense } from 'react';
-import Navbar from '../component/navbar/navbar'
-import Divider from '@mui/material/Divider';
-import Carousel from "react-multi-carousel";
+import React, { useEffect, useState} from 'react';
 import "react-multi-carousel/lib/styles.css";
 import Movies from "../component/movies";
 import MoviesObj from "../component/TMDB";
-import Footer from "../component/footer/footer";
 import Banner from "../component/banner/banner";
 import Loading from "../component/loading/loading";
 import Head from 'next/head';
 import Layout from '../component/Layout';
-import CategoryWise from '../component/AllCatg';
 
 
 
@@ -30,7 +25,7 @@ export default function Home() {
 
 
   if (isLoading) {
-    return <Loading />
+    return <Loading title={'molla'}/>
   }
   
 

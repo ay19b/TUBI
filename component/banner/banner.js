@@ -1,20 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import useStyles from './style';
-import {BsFillPlayFill} from "react-icons/bs";
-import Typography from '@mui/material/Typography';
-import Movie from "../movie";
-import Loading from "../loading/loading";
 import NextLink from 'next/link';
-import Navbar from "../navbar/navbar";
+import Image from "next/image";
+import nocover from '../../public/nocover.jpg'
 
-
-const IMAGE_API = "https://image.tmdb.org/t/p/w1280";
 
 function Banner() {
   const [data, setData] = useState({});
-  const [loading, setLoading] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
   const classes = useStyles();
   
   const truncateString = (string, n) => {
@@ -24,23 +17,15 @@ function Banner() {
   useEffect(() => {
     const RandNum = Math.floor(Math.random() * 20);
     setLoading(true);
-    axios
-
-      .get(
+    axios.get(
         "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=e210177d339cffde80c7bde18b504e93"
       )
       .then((res) => {
         const data = res.data;
         setData(data.results[RandNum]);
-        setLoading(false);
-        console.log(data)
       });
   }, []);
 
-  const handleOnChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
-  
   
   return (
     <>
@@ -48,9 +33,20 @@ function Banner() {
     <div className={classes.banner}>
     
       {data.poster_path ? (
-        <img src={IMAGE_API + data.poster_path} alt={data.title} className={classes.img}/>
+        // eslint-disable-next-line jsx-a11y/alt-text
+        <Image
+          src={`https://image.tmdb.org/t/p/w1280/${data.poster_path}`}
+          width={1200}
+          height={610}
+          className={classes.img}
+      />
       ) : (
-        <img src="no-cover.png" alt={data.title} />
+        // eslint-disable-next-line jsx-a11y/alt-text
+        <Image
+          src={nocover}
+          width={1200}
+          height={610}
+        />
       )}
       <div className={classes.grid}>
          <h1>{data.name || data.title}</h1>

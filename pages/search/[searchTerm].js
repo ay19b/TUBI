@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import Layout from "../../component/Layout";
 import Movie from "../../component/search/searchMovie";
 import useStyles from '../../component/search/style';
-
+import Loading from "../../component/loading/loading";
 
 
 export async function getServerSideProps({query}) {
@@ -26,9 +26,23 @@ function SearchPage({ Data }) {
     const classes = useStyles();
     const router = useRouter();
     const SearchTerm = router.query.searchTerm;
-    const [search, setSearch] = useState([]);
-    
-    console.log(Data)
+    const [search, setSearch] = useState([Data]);
+    const [showIntro, setShowIntro] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setShowIntro(false);
+        setIsLoading(false)
+      }, 4500)
+
+      return (() => clearTimeout(timer));
+    });
+
+
+    if (isLoading) {
+      return <Loading title={`Showing Results for - ${SearchTerm}`}/>
+    }
     
     
 /*
@@ -59,10 +73,9 @@ function SearchPage({ Data }) {
     <Head>
       <title>Showing Results for - {SearchTerm}</title>
     </Head>
-    <Layout > 
+    <Layout>
     
-    <Container>
-      
+     <div className={classes.detailSearch}>
       <div>
         <h2>Search results for {SearchTerm} :</h2>
        
@@ -73,8 +86,8 @@ function SearchPage({ Data }) {
       
       </div>
       
-    </Container> 
     
+    </div> 
     </Layout>
   </>
   )

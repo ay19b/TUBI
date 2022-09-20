@@ -124,3 +124,9 @@ a {
 .swiper-slide{
   width: 80% 
 }
+.mui-style-1ua80n0-MuiInputBase-input-MuiOutlinedInput-input{
+  color: aliceblue;
+};
+.mui-style-1d3z3hw-MuiOutlinedInput-notchedOutline{
+  border-color: rgba(231, 199, 199, 0.23);
+};

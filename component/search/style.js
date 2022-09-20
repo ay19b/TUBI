@@ -3,6 +3,11 @@ import { makeStyles } from '@mui/styles';
 
 
 const useStyles = makeStyles((theme) => ({
+    detailSearch:{
+        width:'100vw',
+        position:'relative',
+        marginTop: '4rem',
+    },
     search:{
         position: 'absolute',
     },

@@ -46,7 +46,7 @@ function DetailMovie() {
 
 
     if (isLoading) {
-      return <Loading />
+      return <Loading title={movies.title}/>
     }
     
 

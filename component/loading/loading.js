@@ -2,11 +2,11 @@ import React from 'react'
 import Head from 'next/head';
 
 
-const Loading = () => {
+const Loading = ({title}) => {
     return (
         <> 
         <Head>
-          <title>molla</title> 
+          <title>{title}</title> 
         </Head>
         <>
           <div id="loader" className="nfLoader"></div>

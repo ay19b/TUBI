@@ -60,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         color: 'white',
+        marginBottom: "1%",
     },
     swiperSlide:{
         flexShrink: '0',
