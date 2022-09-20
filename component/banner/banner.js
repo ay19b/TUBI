@@ -16,7 +16,6 @@ function Banner() {
 
   useEffect(() => {
     const RandNum = Math.floor(Math.random() * 20);
-    setLoading(true);
     axios.get(
         "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=e210177d339cffde80c7bde18b504e93"
       )
