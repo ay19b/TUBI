@@ -27,17 +27,17 @@ function SearchPage({ Data }) {
     const router = useRouter();
     const SearchTerm = router.query.searchTerm;
     const [search, setSearch] = useState([Data]);
-    const [showIntro, setShowIntro] = useState(true);
-    const [isLoading, setIsLoading] = useState(true);
+    const [showIntro, setShowIntro] = useState(undefined);
+    const [isLoading, setIsLoading] = useState(undefined);
 
     useEffect(() => {
-      const timer = setTimeout(() => {
-        setShowIntro(false);
-        setIsLoading(false)
+      setTimeout(() => {
+        setIsLoading(true)
+        setTimeout(() => {
+          setShowIntro(true);
+        }, 1000);
       }, 4500)
-
-      return (() => clearTimeout(timer));
-    });
+    },[]);
 
 
     if (isLoading) {

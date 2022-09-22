@@ -16,8 +16,9 @@ import MovieInfo from "../../component/movieInfo/movieInfo";
 
 function DetailMovie() {
   const [movies, setMovies] = useState([]);
-  const [showIntro, setShowIntro] = useState(true);
-  const [isLoading, setIsLoading] = useState(true);
+  const [title, setTitle] = useState(movies.title);
+  const [showIntro, setShowIntro] = useState(undefined);
+  const [isLoading, setIsLoading] = useState(undefined);
   const router = useRouter();
   const  id  = router.query.id;
   const movieId =
@@ -34,34 +35,41 @@ function DetailMovie() {
       getMovies(movieId);
     }, []);
 
-
     useEffect(() => {
-      const timer = setTimeout(() => {
-        setShowIntro(false);
-        setIsLoading(false)
+      setTimeout(() => {
+        setIsLoading(true)
+        setTimeout(() => {
+          setShowIntro(true);
+        }, 1000);
       }, 4500)
+    },[]);
 
-      return (() => clearTimeout(timer));
-    });
-
-
-    if (isLoading) {
-      return <Loading title={movies.title}/>
-    }
     
 
   return (
   <>
-   <Head>
-       <title>{movies.title}</title>
-    </Head> 
+    {!showIntro ?(
+       <>
+       {!isLoading ?(
+          <Loading title={movies.title}/>
+        ):(
+          <Loading title={movies.title}/>
+        )
+        }
+       </>
+     ):(
+      <>
+      <Head>
+        <title>{movies.title}</title>
+      </Head> 
+    <>   
+      <MovieInfo Data={movies}/>
+    </>  
 
-  <>   
-  
-  <MovieInfo Data={movies}/>
-  </>  
- 
-  </>
+    </>
+     )
+   }
+     </>
 )
 }
 
