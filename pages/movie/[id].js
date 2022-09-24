@@ -33,7 +33,8 @@ function DetailMovie() {
 
     useEffect(() => {
       getMovies(movieId);
-    }, []);
+      console.log(movies)
+    });
 
     useEffect(() => {
       setTimeout(() => {
@@ -44,10 +45,13 @@ function DetailMovie() {
       }, 4500)
     },[]);
 
+
+    
+
     
 
   return (
-  <>
+    <>
     {!showIntro ?(
        <>
        {!isLoading ?(
